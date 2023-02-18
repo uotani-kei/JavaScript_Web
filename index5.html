@@ -1,0 +1,43 @@
+<html>
+  <body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+      const app = document.getElementById('app');
+      function Header(props) {
+        return <h1>{props.title}</h1>;
+      }
+      /*  function Header({title}) {
+        return <h1>{title}</h1>; */
+      function HomePage() {
+        const [likes, setLikes] = React.useState(0);
+        const [pom, setPom] = React.useState("pom");
+        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+        function handleClick() {
+            console.log('increment like count');
+            setLikes(likes + 2);
+            setPom(pom + 1)
+          }
+
+        return (
+          <div>
+            {/* Nesting the Header component */}
+            <Header title="123456789" />
+            <ul>
+              {names.map((name) => (
+                <li>{name}</li>
+              ))}
+            </ul>
+            <button onClick={handleClick}>Like({likes})</button>
+            <button onClick={handleClick}>pom({pom})</button>
+          </div>
+        );
+      }
+      
+      ReactDOM.render(<HomePage />, app);
+    </script>
+  </body>
+</html>
