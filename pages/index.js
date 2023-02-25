@@ -1,12 +1,11 @@
 import { useState } from 'react';
-<div id="app"></div>
 // Babel Script 
   function Header(props) {
     return <h1>{props.title}</h1>;
   }
   /*  function Header({title}) {
     return <h1>{title}</h1>; */
-  function HomePage() {
+  export default function HomePage() {
     const [likes, setLikes] = useState(0);
     const [pom, setPom] = useState("pom");
     const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
